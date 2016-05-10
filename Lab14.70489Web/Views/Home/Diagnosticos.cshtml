@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Diagnosticos";
+}
+
+<h2>Diagnosticos</h2>
+
+@if (ViewBag.TracingStatus)
+{
+    <p>Estado: Activado</p>
+    <p>
+        @Html.ActionLink("Quitar trazas", "ToggleTracing",
+            new
+            {
+                controller = "Home",
+                estado = false
+            })
+    </p>
+    <p><a href="~/trace.axd">Ver las trazas</a></p>
+}
+else
+{
+    <p>Estado: Desactivado</p>
+    <p>
+        @Html.ActionLink("Activar trazas", "ToggleTracing",
+            new
+            {
+                controller = "Home",
+                estado = true
+            })
+    </p>
+}
